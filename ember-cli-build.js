@@ -4,6 +4,13 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
+
+    sassOptions: {
+      includePaths: [
+        'bower_components/flexbox-grid-mixin',
+        'bower_components/bourbon/app/assets/stylesheets'
+      ]
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

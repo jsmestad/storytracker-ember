@@ -1,0 +1,56 @@
+
+{{outlet}}
+
+{{#each model as |iteration|}}
+  <section class="iterations-list">
+    <aside>
+      <div class="iteration">
+      <div>
+        <figure>
+          <img alt="iteration marker" srcset="/assets/images/pin-green.png 2x"/>
+        </figure>
+        <div class="name">
+          <h2>Iteration {{iteration.number}}</h2>
+          <small>Team Strength 100%</small>
+        </div>
+      </div>
+      </div>
+    </aside>
+    <div class="stories green">
+
+      {{#each iteration.stories as |story|}}
+        <div class="story">
+          <div class="stats">
+            <figure class="type">
+              {{fa-icon "fa-star" tagName="span"}} Feature
+            </figure>
+            <figure class="risk">
+              {{fa-icon "fa-signal" tagName="span"}} High
+            </figure>
+            <figure class="updated">
+              {{fa-icon "fa-clock-o" tagName="span"}} 3 days
+            </figure>
+            <figure class="watch">
+              <!-- <% if tracked == 'tracked' %> -->
+                <!-- <a class="follow fa fa-eye-slash"> Unfollow</a> -->
+              <!-- <% else %> -->
+                {{fa-icon "fa-eye" tagName="span"}} Follow
+              <!-- <% end %> -->
+            </figure>
+          </div>
+          <div class="body">
+            <div>
+              <div>
+                <h3>{{story.name}}</h3>
+                <a class="external fa fa-external-link">&nbsp;</a>
+              </div>
+              <p>{{story.description}}</p>
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <h1>no stories found for this iteration</h1>
+      {{/each}}
+    </div>
+  </section>
+{{/each}}
