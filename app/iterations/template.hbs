@@ -19,40 +19,35 @@
     <div class="stories green">
 
       {{#each iteration.stories as |story|}}
-
-        <p>Foo</p>
-      <!-- <% 8.times do |i| %> -->
-        <!-- <div class="story <%= tracked = %w(tracked not).sample %>"> -->
-          <!-- <div class="stats"> -->
-            <!-- <figure class="type"> -->
-              <!-- <span class="fa <%= %w(fa-star fa-bug fa-support).sample %>"> <%= %w(Feature Defect Chore).sample %></span> -->
-            <!-- </figure> -->
-            <!-- <figure class="risk"> -->
-              <!-- <span class="fa fa-signal"> <%= %w(High Medium Low).sample %></span> -->
-            <!-- </figure> -->
-            <!-- <figure class="updated"> -->
-              <!-- <span class="fa fa-clock-o"> <%= (1..100).to_a.sample %> days</span> -->
-            <!-- </figure> -->
-            <!-- <figure class="watch"> -->
+        <div class="story">
+          <div class="stats">
+            <figure class="type">
+              {{fa-icon "fa-star" tagName="span"}} Feature
+            </figure>
+            <figure class="risk">
+              {{fa-icon "fa-signal" tagName="span"}} High
+            </figure>
+            <figure class="updated">
+              {{fa-icon "fa-clock-o" tagName="span"}} 3 days
+            </figure>
+            <figure class="watch">
               <!-- <% if tracked == 'tracked' %> -->
                 <!-- <a class="follow fa fa-eye-slash"> Unfollow</a> -->
               <!-- <% else %> -->
-                <!-- <a class="follow fa fa-eye"> Follow</a> -->
+                {{fa-icon "fa-eye" tagName="span"}} Follow
               <!-- <% end %> -->
-            <!-- </figure> -->
-          <!-- </div> -->
-          <!-- <div class="body"> -->
-            <!-- <div> -->
-              <!-- <div> -->
-                <!-- <h3>As a user, I want slack integration</h3> -->
-                <!-- <a class="external fa fa-external-link">&nbsp;</a> -->
-              <!-- </div> -->
-              <!-- <p><%= FFaker::Lorem.sentences(8).join(' ') %></p> -->
-              <!-- <%# <small>Story originally requested by @jsmestad</small> %> -->
-            <!-- </div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-      <!-- <% end %> -->
+            </figure>
+          </div>
+          <div class="body">
+            <div>
+              <div>
+                <h3>{{story.name}}</h3>
+                <a class="external fa fa-external-link">&nbsp;</a>
+              </div>
+              <p>{{story.description}}</p>
+            </div>
+          </div>
+        </div>
       {{else}}
         <h1>no stories found for this iteration</h1>
       {{/each}}

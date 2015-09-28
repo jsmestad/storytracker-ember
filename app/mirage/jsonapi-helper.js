@@ -6,7 +6,6 @@ let Helper = Ember.Object.extend({
       let attributes = Ember.copy(object, true);
       delete attributes.id;
       delete attributes.type;
-      console.log(attributes);
       return {
         id: object.id,
         type: object.type,
