@@ -1,4 +1,54 @@
+import jsonapi from 'storytracker/mirage/jsonapi-helper';
+
 export default function() {
+
+  this.get('/iterations', function(db) {
+    return {
+      data: db.iterations.map(attrs => (
+        {
+          type: 'iterations',
+          id: attrs.id,
+          attributes: attrs,
+          relationships: {
+            stories: {
+              links: {
+                related: '/iterations/'+attrs.id+'/stories'
+              }
+            }
+          }
+        }
+      ))
+    };
+  });
+
+  // this.get('/iterations', function(db) {
+    // return jsonapi.serialize(db.iterations);
+  // });
+
+  this.get('/iterations/:id/stories', function(db, request) {
+    var id = request.params.id;
+    return jsonapi.serialize(db.stories.where({iterationId: id}));
+  });
+
+  this.get('/stories/:id', function(db, request) {
+    var id = request.params.id;
+    return jsonapi.serialize(db.stories.find(id));
+  });
+
+  this.get('/stories', function(db) {
+    return jsonapi.serialize(db.stories);
+  });
+
+  // this.get('/iterations', function() {
+    // return {
+      // iterations: [
+        // {id: 1, number: '14'},
+        // {id: 2, number: '15'},
+        // {id: 3, number: '16'}
+      // ]
+    // };
+  // });
+
 
   // These comments are here to help you get started. Feel free to delete them.
 

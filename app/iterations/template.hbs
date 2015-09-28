@@ -1,1 +1,61 @@
+
 {{outlet}}
+
+{{#each model as |iteration|}}
+  <section class="iterations-list">
+    <aside>
+      <div class="iteration">
+      <div>
+        <figure>
+          <img alt="iteration marker" srcset="/assets/images/pin-green.png 2x"/>
+        </figure>
+        <div class="name">
+          <h2>Iteration {{iteration.number}}</h2>
+          <small>Team Strength 100%</small>
+        </div>
+      </div>
+      </div>
+    </aside>
+    <div class="stories green">
+
+      {{#each iteration.stories as |story|}}
+
+        <p>Foo</p>
+      <!-- <% 8.times do |i| %> -->
+        <!-- <div class="story <%= tracked = %w(tracked not).sample %>"> -->
+          <!-- <div class="stats"> -->
+            <!-- <figure class="type"> -->
+              <!-- <span class="fa <%= %w(fa-star fa-bug fa-support).sample %>"> <%= %w(Feature Defect Chore).sample %></span> -->
+            <!-- </figure> -->
+            <!-- <figure class="risk"> -->
+              <!-- <span class="fa fa-signal"> <%= %w(High Medium Low).sample %></span> -->
+            <!-- </figure> -->
+            <!-- <figure class="updated"> -->
+              <!-- <span class="fa fa-clock-o"> <%= (1..100).to_a.sample %> days</span> -->
+            <!-- </figure> -->
+            <!-- <figure class="watch"> -->
+              <!-- <% if tracked == 'tracked' %> -->
+                <!-- <a class="follow fa fa-eye-slash"> Unfollow</a> -->
+              <!-- <% else %> -->
+                <!-- <a class="follow fa fa-eye"> Follow</a> -->
+              <!-- <% end %> -->
+            <!-- </figure> -->
+          <!-- </div> -->
+          <!-- <div class="body"> -->
+            <!-- <div> -->
+              <!-- <div> -->
+                <!-- <h3>As a user, I want slack integration</h3> -->
+                <!-- <a class="external fa fa-external-link">&nbsp;</a> -->
+              <!-- </div> -->
+              <!-- <p><%= FFaker::Lorem.sentences(8).join(' ') %></p> -->
+              <!-- <%# <small>Story originally requested by @jsmestad</small> %> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- <% end %> -->
+      {{else}}
+        <h1>no stories found for this iteration</h1>
+      {{/each}}
+    </div>
+  </section>
+{{/each}}
