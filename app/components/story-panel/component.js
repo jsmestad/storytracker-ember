@@ -17,20 +17,11 @@ export default Ember.Component.extend({
       promise.then(function() {
         return this.sendAction('close');
       }.bind(this));
-      // setTimeout( () => {
-        //       // }, 1000);
     }
   },
   becomeVisible: function() {
-    // Ember.run.next(this, function() {
     setTimeout(function() {
       this.$('.cd-panel').addClass('is-visible');
     }.bind(this), 100);
-    // });
-  }.on('didInsertElement'),
-  // becomeInvisible: function() {
-    // Ember.run.next(this, function() {
-      // this.$('.cd-panel').removeClass('is-visible');
-    // });
-  // }.on('willDestroyElement')
+  }.on('didInsertElement')
 });
